@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Form</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url('https://images.unsplash.com/photo-1476108621677-3c620901b5e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2hpdGUlMjBsYW5kc2NhcGV8ZW58MHx8MHx8&w=1000&q=80');
+            background-size:cover;
+            background-position: 0px 0px;
+        }
+        div.main{
+            width: 400px;
+            margin: 30px auto 0px auto;
+        }
+        h2{
+            text-align: center;
+            padding: 20px;
+            font-family: sans-serif;
+        }
+        div.register
+        {
+            background-color: rgba(0,0,0,0.5);
+            width: 100%;
+            font-size: 16px;
+            border-radius: 25px;
+            border:1px solid rgba(255, 255, 255, 0.103);
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+            color:#ffff;
+        }
+        form#register
+        {
+            margin:40px;
+        }
+        .tag1{
+            font-family: sans-serif;
+            font-size: 16px;
+            font-style: italic;
+        }
+        input#name
+        {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: 0;
+            padding: 7px;
+            background-color: #fff;
+            box-shadow: insert 1px 1px 5px rgba(0,0, 0, 0.3)
+        }
+        .but
+        {
+            width: 200px;
+            padding: 7px;
+            font-size: 16px;
+            font-family: sans-serif;
+            font-weight: 600;
+            border-radius: 3px;
+            background-color: rgba(235, 130, 10, 0.397);
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            border:1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 1px 1px 5px rgba(0,0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+        .formerror
+        {
+            color: rgb(119, 4, 29);
+        }
+        
+    </style>
+</head>
+<body>
+    <header style="background-image:url('https://www.transparentpng.com/thumb/shadow/gJ0ypO-index-clubstuff.png') ;text-align:center;background-size: cover;height: 100px;"><h1><br>USER REGISTRATION</h1></header>
+    <div class="main">
+        <div class="register">
+            <h2>!!Register Here!!</h2>
+            <form action="/myaction.php" name="myform" onsubmit="return validateform()" method="post" id="register">
+            <div class="formdesign" id="fname">
+            <b class="tag1">FIRST NAME</b><br><input type="text" name="fname" id="name" placeholder="Enter First Name" required><b><span class="formerror"></span></b><br><br>
+            </div>
+
+            <div class="formdesign" id="lname">
+            <b class="tag1">LAST NAME</b><br><input type="text" name="lname" id="name" placeholder="Enter last name" required><b><span class="formerror"></span></b><br><br>
+            </div>
+
+            <div class="formdesign" id="email">
+            <b class="tag1">EMAIL ID</b><br><input type="text" name="email" id="name" placeholder="Enter email" required><b><span class="formerror"></span></b><br><br>
+            </div>
+
+            <div class="formdesign" id="pwd">
+            <b class="tag1">PASSWORD</b><br><input type="password" name="pwd" id="name" placeholder="Enter Password" required><b><span class="formerror"></span></b><br><br>
+            </div>
+
+            <div class="formdesign" id="cpwd">
+                <b class="tag1">CONFIRM PASSWORD</b><br><input type="password" name="cpwd" id="name" placeholder="Conform Password"
+             required><b><span class="formerror"></span></b><br><br>
+            </div>
+
+            <div class="formdesign" id="phone">
+            <b class="tag1">MOBILE NUMBER</b><br><input type="text" name="phone" id="name" placeholder="Enter mobile number" required><b><span class="formerror"></span></b><br><br>
+            </div>
+
+            <div class="formdesign" id="dob">
+            <b class="tag1">D.O.B</b><br><input type="date" name="dob" id="date" required><br><br>
+            </div>
+
+            <div class="formdesign" id="gender">
+            <b class="tag1">SEX </b><b><span class="formerror"></span></b>
+            <pre class="tag2"><b>MALE:</b><input type="radio" name="gender" id="male" required>    <b>FEMALE:</b><input type="radio" name="gender" id="female" required></pre>
+            </div><br><br>
+
+            <div class="formdesign" id="gcourse">
+            <b class="tag1">GRADUATION COURSE: </b><select name="gcourse" required>
+                <option value="B.Sc">B.sc</option>
+                <option value="B.Tech">B.Tech</option>
+                <option value="BCA">BCA</option>
+                <option value="B.A">B.A</option>
+            </select><b><span class="formerror"></span></b><br><br>
+            </div>
+
+            <div class="formdesign" id="pg">
+            <b class="tag1">POST-GRADUATION COURSE:</b> <select name="pg" required>
+                <option value="M.Sc">M.sc</option>
+                <option value="M.Tech">M.Tech</option>
+                <option value="MCA">MCA</option>
+                <option value="M.A">M.A</option>
+            </select><b><span class="formerror"></span></b><br><br>
+            </div>
+
+            <input class="but" type="submit" value="SUBMIT">
+        </form>
+    </div>
+    </div>
+    <script>
+        function clearErrors()
+        {
+            errors=document.getElementsByClassName('formerror');
+            for(let items of errors)
+            {
+                items.innerHTML="";
+            }
+        }
+        function seterror(id, error)
+        {
+            element=document.getElementById(id);
+            element.getElementsByClassName('formerror')[0].innerHTML=error;
+        }
+        function validateform()
+        {
+            var returnval=true;
+            clearErrors();
+            var Fname=document.forms['myform']["fname"].value;
+            if(Fname.length<=2)
+            {
+                seterror("fname","*First Name is too short");
+                returnval=false;
+            }
+            var Lname=document.forms['myform']["lname"].value;
+            if(Lname.length<=2)
+            {
+                seterror("lname","*Last Name is too short");
+                returnval=false;
+            }
+            var em=document.forms['myform']["email"].value;
+            if(em.indexOf('@')<=0 || (em[em.length-4]!='.' && em[em.length-3]!='.'))
+            {
+                seterror("email","*invalid mail id");
+                returnval=false;
+            }
+            var ph=document.forms['myform']["phone"].value;
+            if(ph.length!=10 || isNaN(ph))
+            {
+                seterror("phone","*invalid format");
+                returnval=false;
+            }
+            var pass=document.forms['myform']["pwd"].value;
+            if(pass.length<8)
+            {
+                seterror("pwd","*Password must be atleast 8 character");
+                returnval=false;
+            }
+            var cpass=document.forms['myform']["cpwd"].value;
+            if(cpass!=pass)
+            {
+                seterror("cpwd","*Password does not match");
+                returnval=false;
+            }
+
+            return returnval;
+        }
+    </script>
+</body>
+</html>
